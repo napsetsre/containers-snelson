@@ -1,10 +1,8 @@
-FROM registry.redhat.io/ubi7/ubi:7.9
+FROM registry.redhat.io/ubi8/ubi:8.4
 
 USER root
-RUN dnf -y install curl &&\
-  curl -sL https://rpm.nodesource.com/setup_14.x -o setup_nodejs_14.sh &&\
-  /bin/bash setup_nodejs_14.sh &&\
-  dnf -y install nodejs
+RUN dnf -y install nodejs git &&\
+  npm install -g meteor
 
 RUN chown -R 1001:0 /meteor && chmod -R ug+rwx /meteor && \
   rpm-file-permissions
