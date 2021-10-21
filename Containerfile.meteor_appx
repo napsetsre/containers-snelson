@@ -1,0 +1,7 @@
+FROM meteor
+EXPOSE 3000
+
+RUN meteor create myapp
+WORKDIR /meteor/myapp
+
+CMD ["meteor", "--production"]
