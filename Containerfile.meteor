@@ -1,0 +1,6 @@
+FROM registry.access.redhat.com/ubi7/ubi:7.9
+
+USER root
+WORKDIR /meteor
+
+RUN npm install -g meteor
